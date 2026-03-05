@@ -1,0 +1,11 @@
+{
+    "name": "trendfy-pv",
+    "version": "1.0.0",
+    "description": "Trendfy - IA para TikTok Shop",
+    "scripts": {
+        "dev": "npx serve . -p 3000",
+        "build": "echo 'Site estático - sem build necessário'",
+        "start": "npx serve . -p 3000"
+    },
+    "private": true
+}

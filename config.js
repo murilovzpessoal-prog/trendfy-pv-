@@ -23,5 +23,14 @@ window.PROJECT_CONFIG = {
         step4: "assets/images/step-04.png",
         avatarAI: "assets/images/avatar-ai.png",
         interfaceMobile: "assets/images/interface-mobile.png"
+    },
+
+    // =============================================
+    // SUPABASE — Configuração do Backend (Trendfy pv)
+    // =============================================
+    supabase: {
+        url: "https://qpvacowyjswagnznjfoj.supabase.co",
+        anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwdmFjb3d5anN3YWduem5qZm9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MzUxNzgsImV4cCI6MjA4ODMxMTE3OH0.hPxFEEge24FTvnv_UJg_uYRPT04cP7sLs0NgY3taFeQ",
+        publishableKey: "sb_publishable_thqLKgf05GSa_oqPUaim8w_CLBznX6R"
     }
 };
