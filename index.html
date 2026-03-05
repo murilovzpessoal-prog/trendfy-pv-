@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trendfy - IA para TikTok Shop</title>
+
+  <!-- CONFIGURAÇÃO CENTRAL (WordPress Style) -->
+  <script src="config.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script>
+    // Injetar cores do config.js no Tailwind se disponível
+    const brandColors = window.PROJECT_CONFIG ? window.PROJECT_CONFIG.colors : {
+      brandBlue: "#3B82F6",
+      brandPurple: "#8B5CF6",
+      brandPink: "#EC4899"
+    };
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: 'var(--brand-purple)',
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: 'var(--brand-purple)',
+              600: 'var(--brand-purple)',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: 'var(--brand-dark)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      /* PALETA PREMIUM - Definida via config.js ou fallback */
+      --brand-blue: #3B82F6;
+      --brand-purple: #8B5CF6;
+      --brand-pink: #EC4899;
+    }
+  </style>
+
+  <script>
+    // Sincronizar variáveis CSS com config.js
+    if (window.PROJECT_CONFIG) {
+      document.documentElement.style.setProperty('--brand-blue', window.PROJECT_CONFIG.colors.brandBlue);
+      document.documentElement.style.setProperty('--brand-purple', window.PROJECT_CONFIG.colors.brandPurple);
+      document.documentElement.style.setProperty('--brand-pink', window.PROJECT_CONFIG.colors.brandPink);
+    }
+  </script>
+
+  <style>
+    :root {
+      --brand-primary: var(--brand-purple);
+      --brand-dark: #1E1B4B;
+
+      --bg-main: #050505;
+      --text-main: #ffffff;
+      --text-muted: #a5a5a5;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-nav {
+      background: rgba(5, 5, 5, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right, var(--brand-blue), var(--brand-purple), var(--brand-pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    /* CUSTOM BUTTON STYLES */
+    .custom-btn {
+      position: relative;
+      padding: 16px 40px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 12px;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple), var(--brand-pink));
+      background-size: 200% auto;
+      box-shadow: 0 10px 20px -10px rgba(139, 92, 246, 0.5);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-btn:hover {
+      background-position: right center;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 20px 35px -15px var(--brand-purple);
+    }
+
+    /* ADDITIONAL OVERRIDES PERA GARANTIR QUE O ROSA SUMA */
+    .bg-brand-500,
+    .bg-brand-DEFAULT {
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple), var(--brand-pink)) !important;
+    }
+
+    .text-brand-500,
+    .text-brand-DEFAULT {
+      background: linear-gradient(to right, var(--brand-blue), var(--brand-purple), var(--brand-pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent !important;
+      display: inline-block;
+    }
+
+    .glow-brand {
+      box-shadow: 0 0 30px -10px var(--brand-purple), 0 0 50px -15px var(--brand-blue);
+    }
+
+    /* FILTRO PARA AS IMAGENS DO MOCKUP (Removido para manter a cor original) */
+    .macbook-screen img,
+    .iphone-screen img {
+      transition: filter 0.5s ease;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100%;
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      50%,
+      100% {
+        left: 200%;
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+  <script type="module" crossorigin="" src="js/index-DXhZGt2j.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+</body>
+
+</html>
